@@ -1,6 +1,6 @@
 import { useCallback, useContext, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter, createHashRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import './App.css';
 import Login from './AuthModule/Components/Login/Login';
@@ -21,7 +21,7 @@ function App() {
 let{userData,saveuserData}=useContext(AuthContext);
 
 
-  const routes=createBrowserRouter([
+  const routes=createHashRouter([
     {
       path:"/dashboard",
       element:<ProtectedRoute userData={userData}><MasterLayout userData={userData}/></ProtectedRoute>,
